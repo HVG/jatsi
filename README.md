@@ -1,3 +1,11 @@
+## build
+docker build -t jatsi .
+docker tag jatsi hvghu.hvgdev.hu:5001/jatsi
+docker push hvghu.hvgdev.hu:5001/jatsi
+
+## run locally
+docker-compose -f build/docker-compose.localhost.yml up -d
+
 ## Jatsi
 
 This is a Yatzy/Yahtzee game that runs on Node.js backend and Vue.js frontend.
