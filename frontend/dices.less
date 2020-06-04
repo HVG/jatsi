@@ -73,7 +73,7 @@
     transform: translateX(0px) translateY(0px) rotate(15deg);
   
     &.throw-1 {
-        transform: translateX(2px) translateY(5px) rotate(20deg);
+        transform: translateX(-22px) translateY(5px) rotate(-30deg);
     }
     &.throw-2 {
         transform: translateX(40px) translateY(30px) rotate(17deg);
@@ -90,7 +90,7 @@
     transform: translateX(10px) translateY(40px) rotate(-12deg);
   
     &.throw-1 {
-        transform: translateX(12px) translateY(35px) rotate(-5deg);
+        transform: translateX(0px) translateY(47px) rotate(-24deg);
     }
     &.throw-2 {
         transform: translateX(-60px) translateY(90px) rotate(5deg);
@@ -107,7 +107,7 @@
     transform: translateX(30px) translateY(70px) rotate(12deg);
   
     &.throw-1 {
-        transform: translateX(30px) translateY(70px) rotate(12deg);
+        transform: translateX(30px) translateY(89px) rotate(3deg);
     }
     &.throw-2 {
         transform: translateX(0px) translateY(90px) rotate(-13deg);
@@ -125,7 +125,7 @@
     transform: translateX(60px) translateY(60px) rotate(-8deg);
   
     &.throw-1 {
-        transform: translateX(56px) translateY(70px) rotate(-8deg);
+        transform: translateX(70px) translateY(52px) rotate(22deg);
     }
     &.throw-2 {
         transform: translateX(31px) translateY(70px) rotate(-8deg);
@@ -142,7 +142,7 @@
     transform: translateX(-70px) translateY(0px) rotate(-12deg);
 
     &.throw-1 {
-        transform: translateX(-70px) translateY(0px) rotate(-12deg);
+        transform: translateX(-58px) translateY(13px) rotate(-69deg);
     }   
     &.throw-2 {
         transform: translateX(-82px) translateY(0px) rotate(97deg);
@@ -211,5 +211,58 @@ button {
         &.dice6 {
             background-image: url('img/dice6.png');
         }
+    }
+}
+
+@media only screen and (max-device-width: 767px) {
+    body {
+        overflow: unset;
+        overflow-x: hidden;
+    }
+
+    .grd-row {
+        flex-direction: column;
+    }
+    .grd-row-col-4-6, .grd-row-col-2-6 {
+        max-width: 100%;
+    }
+    .jatsiboard {
+        display: block;
+    }
+    .infoboard {
+        min-height: 120px;
+        margin: 1rem 0;
+
+        h4.message, h4.rounds-throws {
+            font-weight: 300;
+            font-size: 16px;
+        }
+        h4.message {
+            margin-top: 5px;
+        }
+    }
+    .infoboard h2 {
+        display: flex;
+        margin-top: 10px;
+        font-size: 22px;
+    }
+    .infoboard h2 span {
+        font-size: 22px;
+        margin-left: 10px;
+    }
+    .playboard {
+        padding: 0 20px;
+        min-width: 100%;
+        background-color: #fff;
+    }
+    .diceboard {
+        height: 230px;
+    }
+    .scoreboard {
+        width: 100%;
+    }
+    button.btn--link.records {
+        margin: 0 auto;
+        display: block;
     }
 }
