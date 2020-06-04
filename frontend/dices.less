@@ -1,0 +1,215 @@
+
+.rounds-throws {
+    display: flex;
+    justify-content: space-between;
+}
+.jatsiboard {
+      display: flex;
+      padding: 0;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+}
+.infoboard {
+    text-align: center;
+    min-height: 180px;
+    h2 {
+        text-transform: uppercase;
+        font-weight: 100;
+        span {
+            display: block;
+            font-size: 28px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+    }
+    h4 {
+        &.message, &.rounds-throws {
+        font-weight: 300;
+        font-size: 16px;
+        }
+    }
+}
+  
+.playboard {
+    min-width: 50%;
+    padding: 20px;
+    background-color: #f7f7f7;
+    justify-content: center;
+    position: relative;
+}
+.navboard {
+    text-align: center;
+}
+.scoreboard {
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 50%;
+    padding: 20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-left: 0;
+    margin-top: 0;
+}
+  
+.diceboard {
+    display: flex;
+    position: relative;
+    height: 250px;
+    justify-content: center;
+}
+
+[class^="dice-"] {
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 2;
+}
+  
+.dice-1 {
+    transform: translateX(0px) translateY(0px) rotate(15deg);
+  
+    &.throw-1 {
+        transform: translateX(2px) translateY(5px) rotate(20deg);
+    }
+    &.throw-2 {
+        transform: translateX(40px) translateY(30px) rotate(17deg);
+    }
+    &.throw-3 {
+        transform: translateX(-10px) translateY(60px) rotate(15deg);
+    }
+    &.dice-active {
+        transform: translateX(-20px) translateY(170px) rotate(0deg);
+    }
+}
+  
+.dice-2{
+    transform: translateX(10px) translateY(40px) rotate(-12deg);
+  
+    &.throw-1 {
+        transform: translateX(12px) translateY(35px) rotate(-5deg);
+    }
+    &.throw-2 {
+        transform: translateX(-60px) translateY(90px) rotate(5deg);
+    }
+    &.throw-3 {
+        transform: translateX(15px) translateY(15px) rotate(10deg);
+    }
+    &.dice-active {
+        transform: translateX(-10px) translateY(170px) rotate(0deg);
+    }
+}
+  
+.dice-3 {
+    transform: translateX(30px) translateY(70px) rotate(12deg);
+  
+    &.throw-1 {
+        transform: translateX(30px) translateY(70px) rotate(12deg);
+    }
+    &.throw-2 {
+        transform: translateX(0px) translateY(90px) rotate(-13deg);
+    }
+    &.throw-3 {
+        transform: translateX(0px) translateY(90px) rotate(-13deg);
+    }
+    &.dice-active {
+        transform: translateX(0px) translateY(170px) rotate(0deg);
+    }
+}
+  
+  
+.dice-4{
+    transform: translateX(60px) translateY(60px) rotate(-8deg);
+  
+    &.throw-1 {
+        transform: translateX(56px) translateY(70px) rotate(-8deg);
+    }
+    &.throw-2 {
+        transform: translateX(31px) translateY(70px) rotate(-8deg);
+    }
+    &.throw-3 {
+        transform: translateX(31px) translateY(70px) rotate(-8deg);
+    }
+    &.dice-active {
+        transform: translateX(10px) translateY(170px) rotate(0deg);
+    }
+}
+  
+.dice-5 {
+    transform: translateX(-70px) translateY(0px) rotate(-12deg);
+
+    &.throw-1 {
+        transform: translateX(-70px) translateY(0px) rotate(-12deg);
+    }   
+    &.throw-2 {
+        transform: translateX(-82px) translateY(0px) rotate(97deg);
+    }
+    &.throw-3 {
+        transform: translateX(-50px) translateY(0px) rotate(-57deg);
+    }
+    &.dice-active {
+        transform: translateX(20px) translateY(170px) rotate(0deg);
+    }
+}
+
+.selected-dice {
+    border-top: 2px solid #ccc;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 160px;
+    z-index: 1;
+  
+    &.selected-active {
+        opacity: 0.5;
+    }
+}
+
+button {
+    &.btn--link.records {
+        margin: 0 auto;
+        /*position: absolute;
+        bottom: 20px;*/
+    }
+    &.dice {
+        position: relative;
+        border: 0;
+        text-decoration: none;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        background-image: url('img/dice0.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        text-indent: -9999px;
+        outline: none;
+
+        &.dice-disabled {
+            pointer-events: none;
+        }
+
+        &.dice1 {
+            background-image: url('img/dice1.png');
+        }
+        &.dice2 {
+            background-image: url('img/dice2.png');
+        }
+        &.dice3 {
+            background-image: url('img/dice3.png');
+        }
+        &.dice4 {
+            background-image: url('img/dice4.png');
+        }
+        &.dice5 {
+            background-image: url('img/dice5.png');
+        }
+        &.dice6 {
+            background-image: url('img/dice6.png');
+        }
+    }
+}
