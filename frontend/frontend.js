@@ -297,6 +297,13 @@ window.onload = function() {
           } else {
             this["player" + player + "NameInput"] = "";
           }
+        },
+
+        buildDiceClasses: function(dice) {
+          if (dice === '-') {
+            return [ 'dice-disabled' ];
+          }
+          return [ 'dice-active dice' + dice ];
         }
       }
     });
