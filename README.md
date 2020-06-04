@@ -3,6 +3,9 @@ docker build -t jatsi .
 docker tag jatsi hvghu.hvgdev.hu:5001/jatsi
 docker push hvghu.hvgdev.hu:5001/jatsi
 
+docker tag jatsi hvghu.hvgonline.hu:5001/jatsi
+docker push hvghu.hvgonline.hu:5001/jatsi
+
 ## run locally
 docker-compose -f build/docker-compose.localhost.yml up -d
 

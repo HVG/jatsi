@@ -1,0 +1,6 @@
+version: '3.5'
+services:
+  jatsi:
+    image: hvghu.hvgonline.hu:5001/jatsi
+    ports:
+     - "3664:8080"
