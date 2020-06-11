@@ -1,4 +1,17 @@
-
+header {
+    h1 {
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+        margin: 0;
+    }
+    h2 {
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+        margin: 0 0 15px;
+    }
+}
 .rounds-throws {
     display: flex;
     justify-content: space-between;
@@ -30,6 +43,28 @@
         }
     }
 }
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(117,209,183,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+
+    h1 {
+        font-size: 1.998rem;
+        font-weight: 300;
+    }
+    h2 {
+        font-size: 1.827rem;
+    }
+}
   
 .playboard {
     min-width: 50%;
@@ -37,6 +72,11 @@
     background-color: #f7f7f7;
     justify-content: center;
     position: relative;
+    margin: 0 auto;
+}
+
+.highscores {
+    min-width: 50%;
 }
 .navboard {
     text-align: center;
@@ -45,12 +85,13 @@
     box-sizing: border-box;
     background-color: #fff;
     width: 50%;
-    padding: 20px;
+    padding: 20px 0;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
     margin-left: 0;
     margin-top: 0;
+    position: relative;
 }
   
 .diceboard {
@@ -170,10 +211,18 @@
 }
 
 button {
-    &.btn--link.records {
-        margin: 0 auto;
-        /*position: absolute;
-        bottom: 20px;*/
+    &.btn--link {
+        span {
+            font-size: 10px;
+            text-transform: none;
+            display: block;
+            margin-top: 3px;
+        }
+        &.records {
+            margin: 0 auto;
+            /*position: absolute;
+            bottom: 20px;*/
+        }
     }
     &.dice {
         position: relative;
@@ -186,6 +235,7 @@ button {
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
+        background-color: #ffffff;
         text-indent: -9999px;
         outline: none;
 
@@ -260,9 +310,13 @@ button {
     }
     .scoreboard {
         width: 100%;
+        padding: 20px;
     }
     button.btn--link.records {
         margin: 0 auto;
         display: block;
+    }
+    table.table-results {
+        width: 100%;
     }
 }

@@ -20,12 +20,12 @@
     <script src="frontend.js"></script>
 </head>
 <body>
-
 <!-- This vue div will be Vue.js playground. -->
 <div id="vue">
-    <!-- <div class="grd-row">
-        <div class="grd-row-col-6 bg--light-gray m1"></div>
-    </div> -->
+    <header>
+        <h1>{{ ui.gameName }}</h1>
+        <h2>{{ ui.gameLead }}</h2>
+    </header>
     <div id="jatsi_main">
         <div class="jatsiboard bg--white" id="jatsi_center">
             <div class="playboard">
@@ -35,7 +35,6 @@
                     <h4 class="message" v-if="activeAiPlayer=='Y'">{{ aiMessage }}</h4>
                 </div>
                 <!-- Div that contains the dice. Player can click these to set which dice will be kept and which will be thrown. -->
-                <!-- <div class="line" v-if="gameStarted==true && highScoresVisible==false"></div> -->
                 <div class="diceboard" v-if="gameStarted==true && highScoresVisible==false && endGameSituation==false" v-bind:style="disableClick">
                     <div class="dice-1" v-bind:class="[ 
                     dice1Selected==true ? 'dice-active' : '', 
@@ -164,11 +163,15 @@
             </div>
             <!-- The game table. Player can select which combination to choose to get points. -->
             <div class="scoreboard grd-row-col-5-6--md" v-if="gameStarted==true && highScoresVisible==false">
+                <div class="overlay" v-if="endGameSituation==true">
+                    <h1>{{ ui.endGame }}</h1>
+                    <h2>{{ ui.winner }} név ide</h2>
+                </div>
                 <table class="table table-results m1"  v-bind:style="disableClick">
                     <thead>
                         <tr>
                             <th></th>
-                            <th v-for="playerName in playerNames">{{ playerName }}</th>
+                            <th v-for="playerName in playerNames"><p>{{ playerName }}</p></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -197,7 +200,7 @@
                             <td v-for="sixes in sixesValue">{{ sixes }}</td>
                         </tr>
                         <tr>
-                            <td><div class="bold m1">{{ ui.bonus }}</div></td>
+                            <td><div class="bold bonus">{{ ui.bonus }}</div></td>
                             <td class="bold" v-for="bonus in bonusValue">{{ bonus }}</td>
                         </tr>
                         <tr>
@@ -209,31 +212,31 @@
                             <td v-for="twoPairs in twoPairsValue">{{ twoPairs }}</td>
                         </tr>
                         <tr>
-                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'threeOfAKind')">{{ ui.threeOfAKind }}</button></td>
+                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'threeOfAKind')">{{ ui.threeOfAKind }} <span>{{ ui.threeOfAKindSmall }}</span></button></td>
                             <td v-for="threeOfAKind in threeOfAKindValue">{{ threeOfAKind }}</td>
                         </tr>
                         <tr>
-                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'fourOfAKind')">{{ ui.fourOfAKind }}</button></td>
+                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'fourOfAKind')">{{ ui.fourOfAKind }} <span>{{ ui.fourOfAKindSmall }}</span></button></td>
                             <td v-for="fourOfAKind in fourOfAKindValue">{{ fourOfAKind }}</td>
                         </tr>
                         <tr>
-                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'smallStraight')">{{ ui.smallStraight }}</button></td>
+                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'smallStraight')">{{ ui.smallStraight }} <span>{{ ui.smallStraightSmall }}</span></button></td>
                             <td v-for="smallStraight in smallStraightValue">{{ smallStraight }}</td>
                         </tr>
                         <tr>
-                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'largeStraight')">{{ ui.largeStraight }}</button></td>
+                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'largeStraight')">{{ ui.largeStraight }} <span>{{ ui.largeStraightSmall }}</span></button></td>
                             <td v-for="largeStraight in largeStraightValue">{{ largeStraight }}</td>
                         </tr>
                         <tr>
-                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'fullHouse')">{{ ui.fullHouse }}</button></td>
+                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'fullHouse')">{{ ui.fullHouse }} <span>{{ ui.fullHouseSmall }}</span></button></td>
                             <td v-for="fullHouse in fullHouseValue">{{ fullHouse }}</td>
                         </tr>
                         <tr>
-                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'chance')">{{ ui.chance }}</button></td>
+                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'chance')">{{ ui.chance }} <span>{{ ui.chanceSmall }}</span></button></td>
                             <td v-for="chance in chanceValue">{{ chance }}</td>
                         </tr>
                         <tr>
-                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'yatzy')">{{ ui.yatzy }}</button></td>
+                            <td><button class="btn--link" v-on:click="clickEndRound(activeGameId,'yatzy')">{{ ui.yatzy }} <span>{{ ui.yatzySmall }}</span></button></td>
                             <td v-for="yatzy in yatzyValue">{{ yatzy }}</td>
                         </tr>
                         <tr>
@@ -245,7 +248,7 @@
             </div>
 
             <!-- High scores table. Visible if player clicks the High Score button. -->
-            <div v-if="highScoresVisible==true" class="m1">
+            <div v-if="highScoresVisible==true" class="highscores m1">
                 <h3>{{ ui.highScores }}</h3>
                 <ul v-for="highScore in highScoresTable">
                     <li class="muted">{{ highScore.score }} - {{ highScore.date }} - {{ highScore.name }}</li>
@@ -253,9 +256,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="grd-row">
-        <div class="grd-row-col-6 bg--light-gray m1"></div>
-    </div> -->
 </div>
 </body>
 </html>
