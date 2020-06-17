@@ -5,6 +5,7 @@ window.onload = function() {
   // Get texts for UI from backend. Use Axios for all backend GETs and POSTs. https://github.com/mzabriskie/axios
   // Use Furtive for all css styles. http://furtive.co, https://github.com/johnotander/furtive
   axios.get("api/uitext").then(response => {
+    var aiName = response.data.ui.ai_real_name;
     // Use Vue.js. The Progressive JavaScript Framework. https://vuejs.org, https://github.com/vuejs/vue
     new Vue({
       el: "#vue",
@@ -22,7 +23,7 @@ window.onload = function() {
         dice5Selected: false,
         highScoresTable: "empty",
         highScoresVisible: false,
-        numberOfPlayers: 0,
+        numberOfPlayers: 1,
         activePlayer: 0,
         activeGameId: 0,
         activePlayerName: "",
@@ -36,13 +37,13 @@ window.onload = function() {
         throwNumber: [0, 0, 0, 0],
         endGameSituation: false,
         player1NameInput: "",
-        player2NameInput: "",
-        player3NameInput: "",
-        player4NameInput: "",
+        player2NameInput: aiName,
+        player3NameInput: aiName,
+        player4NameInput: aiName,
         player1TypeInput: "N",
-        player2TypeInput: "N",
-        player3TypeInput: "N",
-        player4TypeInput: "N",
+        player2TypeInput: "Y",
+        player3TypeInput: "Y",
+        player4TypeInput: "Y",
         gameStarted: false,
         playerNames: ["", "", "", ""],
         gameTable: [{}, {}, {}, {}],
