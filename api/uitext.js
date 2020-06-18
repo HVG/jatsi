@@ -3,8 +3,6 @@
 // All UI texts. You can translate whole UI by modifying these values.
 module.exports = {
   ui: {
-    gameName: "Kockapóker",
-    gameLead: "Játssz velünk a hvg360-on",
     newGame: "Új játék",
     endGame: "A játék véget ért!",
     throwDice: "Dobj",
