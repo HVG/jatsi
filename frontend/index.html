@@ -165,7 +165,7 @@
             <div class="scoreboard grd-row-col-5-6--md" v-if="gameStarted==true && highScoresVisible==false">
                 <div class="overlay" v-if="endGameSituation==true">
                     <h1>{{ ui.endGame }}</h1>
-                    <h2>{{ ui.winner }} név ide</h2>
+                    <h2>{{ ui.winner }} {{winner.name}}</h2>
                 </div>
                 <table class="table table-results m1"  v-bind:style="disableClick">
                     <thead>

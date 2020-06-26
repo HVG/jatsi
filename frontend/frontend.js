@@ -64,7 +64,8 @@ window.onload = function() {
         chanceValue: ["", "", "", ""],
         yatzyValue: ["", "", "", ""],
         totalValue: ["", "", "", ""],
-        disableClick: { "pointer-events": "" }
+        disableClick: { "pointer-events": "" },
+        winner: { score: -1, name: "" }
       },
       methods: {
         // When player clicks 'New Game' -button. Send post with player name to api/newgame and initialize values.
@@ -270,6 +271,10 @@ window.onload = function() {
         // End game. Send post with gameid. High score will be saved in backend.
         endGame: function(gameId, activePlayer) {
           axios.post("api/endGame", { GAMEID: gameId }).then(response => {
+            if (this.winner === null || this.winner.score < response.data.highScore.score) {
+              this.winner = response.data.highScore;
+            }
+
             if (activePlayer == this.numberOfPlayers) {
               this.endGameSituation = true;
               this.activePlayer = 0;
