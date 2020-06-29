@@ -114,7 +114,7 @@ header {
     transform: translateX(0px) translateY(0px) rotate(15deg);
   
     &.throw-1 {
-        transform: translateX(-22px) translateY(5px) rotate(-30deg);
+        transform: translateX(-5px) translateY(5px) rotate(-30deg);
     }
     &.throw-2 {
         transform: translateX(40px) translateY(30px) rotate(17deg);
@@ -166,7 +166,7 @@ header {
     transform: translateX(60px) translateY(60px) rotate(-8deg);
   
     &.throw-1 {
-        transform: translateX(70px) translateY(52px) rotate(22deg);
+        transform: translateX(58px) translateY(52px) rotate(22deg);
     }
     &.throw-2 {
         transform: translateX(31px) translateY(70px) rotate(-8deg);
@@ -263,18 +263,18 @@ button {
         }
     }
 }
-
+@media only screen and (max-device-width: 992px) {
+    .grd-row-col-4-6, .grd-row-col-2-6 {
+        max-width: 100%;
+    }
+}
 @media only screen and (max-device-width: 767px) {
     body {
         overflow: unset;
         overflow-x: hidden;
     }
-
     .grd-row {
         flex-direction: column;
-    }
-    .grd-row-col-4-6, .grd-row-col-2-6 {
-        max-width: 100%;
     }
     .jatsiboard {
         display: block;
@@ -286,6 +286,7 @@ button {
         h4.message, h4.rounds-throws {
             font-weight: 300;
             font-size: 16px;
+            padding: 0 10px;
         }
         h4.message {
             margin-top: 5px;
@@ -295,13 +296,14 @@ button {
         display: flex;
         margin-top: 10px;
         font-size: 22px;
+        padding: 0 10px;
     }
     .infoboard h2 span {
         font-size: 22px;
         margin-left: 10px;
     }
     .playboard {
-        padding: 0 20px;
+        padding: 0;
         min-width: 100%;
         background-color: #fff;
     }
@@ -318,5 +320,12 @@ button {
     }
     table.table-results {
         width: 100%;
+    }
+}
+@media only screen and (max-device-width: 320px) {
+    .jatsiboard {
+        width: 290px;
+        max-width: 100%;
+        margin: 0;
     }
 }

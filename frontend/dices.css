@@ -104,7 +104,7 @@ header h2 {
   transform: translateX(0px) translateY(0px) rotate(15deg);
 }
 .dice-1.throw-1 {
-  transform: translateX(-22px) translateY(5px) rotate(-30deg);
+  transform: translateX(-5px) translateY(5px) rotate(-30deg);
 }
 .dice-1.throw-2 {
   transform: translateX(40px) translateY(30px) rotate(17deg);
@@ -149,7 +149,7 @@ header h2 {
   transform: translateX(60px) translateY(60px) rotate(-8deg);
 }
 .dice-4.throw-1 {
-  transform: translateX(70px) translateY(52px) rotate(22deg);
+  transform: translateX(58px) translateY(52px) rotate(22deg);
 }
 .dice-4.throw-2 {
   transform: translateX(31px) translateY(70px) rotate(-8deg);
@@ -234,6 +234,12 @@ button.dice.dice5 {
 button.dice.dice6 {
   background-image: url('img/dice6.png');
 }
+@media only screen and (max-device-width: 992px) {
+  .grd-row-col-4-6,
+  .grd-row-col-2-6 {
+    max-width: 100%;
+  }
+}
 @media only screen and (max-device-width: 767px) {
   body {
     overflow: unset;
@@ -241,10 +247,6 @@ button.dice.dice6 {
   }
   .grd-row {
     flex-direction: column;
-  }
-  .grd-row-col-4-6,
-  .grd-row-col-2-6 {
-    max-width: 100%;
   }
   .jatsiboard {
     display: block;
@@ -257,6 +259,7 @@ button.dice.dice6 {
   .infoboard h4.rounds-throws {
     font-weight: 300;
     font-size: 16px;
+    padding: 0 10px;
   }
   .infoboard h4.message {
     margin-top: 5px;
@@ -265,13 +268,14 @@ button.dice.dice6 {
     display: flex;
     margin-top: 10px;
     font-size: 22px;
+    padding: 0 10px;
   }
   .infoboard h2 span {
     font-size: 22px;
     margin-left: 10px;
   }
   .playboard {
-    padding: 0 20px;
+    padding: 0;
     min-width: 100%;
     background-color: #fff;
   }
@@ -288,5 +292,12 @@ button.dice.dice6 {
   }
   table.table-results {
     width: 100%;
+  }
+}
+@media only screen and (max-device-width: 320px) {
+  .jatsiboard {
+    width: 290px;
+    max-width: 100%;
+    margin: 0;
   }
 }
