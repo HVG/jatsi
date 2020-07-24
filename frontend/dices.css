@@ -234,13 +234,13 @@ button.dice.dice5 {
 button.dice.dice6 {
   background-image: url('img/dice6.png');
 }
-@media only screen and (max-device-width: 992px) {
+@media only screen and (max-width: 992px) {
   .grd-row-col-4-6,
   .grd-row-col-2-6 {
     max-width: 100%;
   }
 }
-@media only screen and (max-device-width: 767px) {
+@media only screen and (max-width: 767px) {
   body {
     overflow: unset;
     overflow-x: hidden;
@@ -278,6 +278,7 @@ button.dice.dice6 {
     padding: 0;
     min-width: 100%;
     background-color: #fff;
+    min-height: 460px;
   }
   .diceboard {
     height: 230px;
@@ -294,7 +295,7 @@ button.dice.dice6 {
     width: 100%;
   }
 }
-@media only screen and (max-device-width: 320px) {
+@media only screen and (max-width: 320px) {
   .jatsiboard {
     width: 290px;
     max-width: 100%;
